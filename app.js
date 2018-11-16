@@ -17,14 +17,19 @@ window.onload = function () {
 }
 //初期化
 function init() {
-    console.log('init');
+    const threshold = document.getElementById('threshold');
+    const stopbtn = document.getElementById('stop');
+    const stepbtn = document.getElementById('step');
+    // console.log('init');
     lifegame = document.getElementById('lifegame');
     ctx = lifegame.getContext('2d');
-    row = Math.floor(lifegame.width / cellSize);
-    col = Math.floor(lifegame.height / cellSize);
+    const width = lifegame.width;
+    const height = lifegame.height;
+    row = Math.floor(width / cellSize);
+    col = Math.floor(height / cellSize);
     ctx.beginPath();
-    ctx.fillStyle = 'rgb(60,60,60)';
-    ctx.fillRect(0, 0, 640, 640);
+    ctx.fillStyle = DEAD;
+    ctx.fillRect(0, 0, width, height);
     cells = new Array(row);
     for(let r = 0; r < row; r++) {
         cells[r] = new Array(col);
